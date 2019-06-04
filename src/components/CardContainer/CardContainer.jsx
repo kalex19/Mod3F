@@ -8,4 +8,4 @@ const CardContainer = props => {
 	return <section className="container">{cards}</section>;
 };
 
-export default PresidentsContainer;
+export default CardContainer;
