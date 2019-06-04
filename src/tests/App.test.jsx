@@ -1,70 +1,53 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../components/App/App';
-
-it('renders without crashing', () => {
-	const div = document.createElement('div');
-	ReactDOM.render(<App />, div);
-	ReactDOM.unmountComponentAtNode(div);
-});
-{
-	/* 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App, mapStateToProps, mapDispatchToProps } from './App';
-import { addPresidentData } from '../actions'
-
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-//   ReactDOM.unmountComponentAtNode(div);
-// });
+import { App, mapStateToProps, mapDispatchToProps } from '../containers/App/App';
+import { allData } from '../actions';
 
 describe('App', () => {
-  let mockPresidentData;
+	let mockData;
 
-  beforeEach(() => {
-    mockPresidentData = [{
-      number: 2,
-      president: "John Adams",
-      birth_year: 1735,
-      death_year: 1826,
-      took_office: "1797-03-04",
-      left_office: "1801-03-04",
-      party: "Democratic"
-    }];
-  })
-  
-  describe('mapStateToProps', () => {
-    it('should return an object with the president data array', () => {
-      const mockState = {
-        presidentData: mockPresidentData,
-        fakeProp: 'hi'
-      }
-      
-      const expected = {
-        presidentData: mockPresidentData
-      }
-      
-      const mappedProps = mapStateToProps(mockState)
-      
-      expect(mappedProps).toEqual(expected)
-    })
-  })
+	beforeEach(() => {
+		mockData = [
+			{
+				number: 2,
+				president: 'John Adams',
+				birth_year: 1735,
+				death_year: 1826,
+				took_office: '1797-03-04',
+				left_office: '1801-03-04',
+				party: 'Democratic'
+			}
+		];
+	});
 
-  describe('mapDispatchToProps', () => {
-    it('calls dispatch with an addPresidentData action', () => {
-      const mockDispatch = jest.fn();
+	describe('mapStateToProps', () => {
+		it('should return an object with the president data array', () => {
+			const mockState = {
+				allData: mockData,
+				fakeProp: 'hi'
+			};
 
-      const actionToDispatch = addPresidentData(mockPresidentData);
+			const expected = {
+				allData: mockData
+			};
 
-      const mappedProps = mapDispatchToProps(mockDispatch);
+			const mappedProps = mapStateToProps(mockState);
 
-      mappedProps.addPresidentData(mockPresidentData);
+			expect(mappedProps).toEqual(expected);
+		});
+	});
 
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-    })
-  })
-  
-}) */
-}
+	describe('mapDispatchToProps', () => {
+		it('calls dispatch with an addPresidentData action', () => {
+			const mockDispatch = jest.fn();
+
+			const actionToDispatch = allData(mockData);
+
+			const mappedProps = mapDispatchToProps(mockDispatch);
+
+			mappedProps.addPresidentData(mockData);
+
+			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+		});
+	});
+});

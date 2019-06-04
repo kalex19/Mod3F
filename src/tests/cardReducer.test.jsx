@@ -1,34 +1,36 @@
-// import presidentDataReducer from './presidentDataReducer'
+import cardReducer from '../reducers/cardReducer';
 
-// describe('presidentDataReducer', () => {
-//   it('should return the initial state', () => {
-//     const expected = []
+describe('cardReducer', () => {
+	it('should return the initial state', () => {
+		const expected = [];
 
-//     const result = presidentDataReducer(undefined, [])
+		const result = cardReducer(undefined, []);
 
-//     expect(result).toEqual(expected)
-//   })
+		expect(result).toEqual(expected);
+	});
 
-//   it('returns the correct state', () => {
-//     const mockPresidents = [{
-//       number: 2,
-//       president: "John Adams",
-//       birth_year: 1735,
-//       death_year: 1826,
-//       took_office: "1797-03-04",
-//       left_office: "1801-03-04",
-//       party: "Democratic"
-//     }];
+	it('returns the correct state', () => {
+		const mockData = [
+			{
+				number: 2,
+				president: 'John Adams',
+				birth_year: 1735,
+				death_year: 1826,
+				took_office: '1797-03-04',
+				left_office: '1801-03-04',
+				party: 'Democratic'
+			}
+		];
 
-//     const action = {
-//       type: 'ADD_PRESIDENT_DATA',
-//       payload: {
-//         presidentData: mockPresidents
-//       }
-//     }
+		const action = {
+			type: 'ALL_DATA',
+			payload: {
+				allData: mockData
+			}
+		};
 
-//     const expectedState = mockPresidents;
+		const expectedState = mockData;
 
-//     expect(presidentDataReducer(undefined, action)).toEqual(expectedState);
-//   });
-// })
+		expect(cardReducer(undefined, action)).toEqual(expectedState);
+	});
+});
