@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App';
-import { createStore, applyMiddleware } from 'react-redux';
+import App from './containers/App/App';
+import { createStore } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';

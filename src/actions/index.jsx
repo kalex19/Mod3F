@@ -1,9 +1,9 @@
-export const allData = data => {
-	type: 'ALL_Data', 
+export const allData = data => ({
+	type: 'ALL_Data',
 	payload: {
 		data
 	}
-};
+});
 
 // export const addCard = card => {
 // 	type: 'ADD_CARD', card;

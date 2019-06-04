@@ -7,8 +7,8 @@ export class App extends Component {
   construtor(props) {
     super(props) 
     this.state = {
-      isLoading = true,
-      error = false
+      isLoadin: true,
+      error: false
     }
   }
 
